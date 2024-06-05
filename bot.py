@@ -6,7 +6,7 @@ from aiohttp import web
 from plugins import web_server
 import pyromod.listen
 from pyrogram import Client
-from pyrogram.enums import ParseMode
+#from pyrogram.enums import ParseMode
 import sys
 from datetime import datetime
 
@@ -54,7 +54,7 @@ class Bot(Client):
             self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/MadflixBots_Support for support")
             sys.exit()
 
-        self.set_parse_mode(ParseMode.HTML)
+       # self.set_parse_mode(ParseMode.HTML)
         self.LOGGER(__name__).info(f"Bot Running..!\n\nCreated by \nhttps://t.me/Madflix_Bots")
         self.LOGGER(__name__).info(f"""
 ──╔╦══╦═══╦╗─╔╦╗─╔╦══╗╔═══╦════╦════╗
