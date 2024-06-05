@@ -1,4 +1,5 @@
-pyrogram==1.2.9
+#pyrogram==1.2.9
+git+https://github.com/KurimuzonAkuma/pyrogram
 Pyromod
 TgCrypto
 psycopg2-binary
