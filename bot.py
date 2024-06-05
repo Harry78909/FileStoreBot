@@ -6,6 +6,9 @@ import logging.config
 logging.getLogger().setLevel(logging.ERROR)
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
+def LOGGER(name: str) -> logging.Logger:
+    return logging.getLogger(name)
+    
 from pyromod import listen
 from pyrogram import Client
 from config import *
