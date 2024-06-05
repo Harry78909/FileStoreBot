@@ -2,6 +2,14 @@ import os
 import logging
 import logging.config
 
+from aiohttp import web
+from plugins import web_server
+import pyromod.listen
+from pyrogram import Client
+from pyrogram.enums import ParseMode
+import sys
+from datetime import datetime
+
 # Get logging configurations
 logging.getLogger().setLevel(logging.ERROR)
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
@@ -12,21 +20,6 @@ def LOGGER(name: str) -> logging.Logger:
 from pyromod import listen
 from pyrogram import Client
 from config import *
-
-"""def main():
-    plugins = dict(root="plugins")
-    app = Client("FileStore",
-                 bot_token=BOT_TOKEN,
-                 api_id=API_ID,
-                 api_hash=API_HASH,
-                 plugins=plugins,
-                 workers=100)
-
-    app.run()
-
-
-if __name__ == "__main__":
-    main()"""
 
 name ="""By @Madflix_Bots From Telegram"""
 
@@ -72,10 +65,10 @@ class Bot(Client):
 ╚══╩══╩═══╩╝─╚╩═══╩═══╩═══╝─╚╝─╚════╝""")
         self.username = usr_bot_me.username
         #web-response
-        #app = web.AppRunner(await web_server())
-        #await app.setup()
-        #bind_address = "0.0.0.0"
-        #await web.TCPSite(app, bind_address, PORT).start()
+        app = web.AppRunner(await web_server())
+        await app.setup()
+        bind_address = "0.0.0.0"
+        await web.TCPSite(app, bind_address, 8080).start()
 
     async def stop(self, *args):
         await super().stop()
